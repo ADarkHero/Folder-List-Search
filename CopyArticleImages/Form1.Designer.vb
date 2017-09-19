@@ -62,21 +62,21 @@ Partial Class Form1
         '
         Me.sourceFolder.Location = New System.Drawing.Point(12, 95)
         Me.sourceFolder.Name = "sourceFolder"
-        Me.sourceFolder.Size = New System.Drawing.Size(250, 20)
+        Me.sourceFolder.Size = New System.Drawing.Size(233, 20)
         Me.sourceFolder.TabIndex = 2
         '
         'destinationFolder
         '
         Me.destinationFolder.Location = New System.Drawing.Point(11, 170)
         Me.destinationFolder.Name = "destinationFolder"
-        Me.destinationFolder.Size = New System.Drawing.Size(250, 20)
+        Me.destinationFolder.Size = New System.Drawing.Size(234, 20)
         Me.destinationFolder.TabIndex = 3
         '
         'fileList
         '
         Me.fileList.Location = New System.Drawing.Point(11, 255)
         Me.fileList.Name = "fileList"
-        Me.fileList.Size = New System.Drawing.Size(250, 20)
+        Me.fileList.Size = New System.Drawing.Size(234, 20)
         Me.fileList.TabIndex = 4
         '
         'sourceFolderButton
@@ -139,29 +139,29 @@ Partial Class Form1
         '
         'chooseSourceFolder
         '
-        Me.chooseSourceFolder.Location = New System.Drawing.Point(268, 95)
+        Me.chooseSourceFolder.Location = New System.Drawing.Point(251, 95)
         Me.chooseSourceFolder.Name = "chooseSourceFolder"
-        Me.chooseSourceFolder.Size = New System.Drawing.Size(20, 20)
+        Me.chooseSourceFolder.Size = New System.Drawing.Size(37, 20)
         Me.chooseSourceFolder.TabIndex = 11
-        Me.chooseSourceFolder.Text = "X"
+        Me.chooseSourceFolder.Text = "..."
         Me.chooseSourceFolder.UseVisualStyleBackColor = True
         '
         'chooseDestinationFolder
         '
-        Me.chooseDestinationFolder.Location = New System.Drawing.Point(268, 170)
+        Me.chooseDestinationFolder.Location = New System.Drawing.Point(251, 170)
         Me.chooseDestinationFolder.Name = "chooseDestinationFolder"
-        Me.chooseDestinationFolder.Size = New System.Drawing.Size(20, 20)
+        Me.chooseDestinationFolder.Size = New System.Drawing.Size(37, 20)
         Me.chooseDestinationFolder.TabIndex = 12
-        Me.chooseDestinationFolder.Text = "X"
+        Me.chooseDestinationFolder.Text = "..."
         Me.chooseDestinationFolder.UseVisualStyleBackColor = True
         '
         'chooseFileList
         '
-        Me.chooseFileList.Location = New System.Drawing.Point(268, 255)
+        Me.chooseFileList.Location = New System.Drawing.Point(251, 255)
         Me.chooseFileList.Name = "chooseFileList"
-        Me.chooseFileList.Size = New System.Drawing.Size(20, 20)
+        Me.chooseFileList.Size = New System.Drawing.Size(37, 20)
         Me.chooseFileList.TabIndex = 13
-        Me.chooseFileList.Text = "X"
+        Me.chooseFileList.Text = "..."
         Me.chooseFileList.UseVisualStyleBackColor = True
         '
         'exportErrorLog
