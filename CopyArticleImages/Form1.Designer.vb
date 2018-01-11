@@ -38,6 +38,7 @@ Partial Class Form1
         Me.chooseFileList = New System.Windows.Forms.Button()
         Me.exportErrorLog = New System.Windows.Forms.Button()
         Me.reducesLogging = New System.Windows.Forms.CheckBox()
+        Me.onlyCheckForExist = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'logBox
@@ -50,7 +51,6 @@ Partial Class Form1
         '
         'logBoxButton
         '
-        Me.logBoxButton.Enabled = False
         Me.logBoxButton.Location = New System.Drawing.Point(296, 12)
         Me.logBoxButton.Name = "logBoxButton"
         Me.logBoxButton.Size = New System.Drawing.Size(400, 35)
@@ -81,7 +81,6 @@ Partial Class Form1
         '
         'sourceFolderButton
         '
-        Me.sourceFolderButton.Enabled = False
         Me.sourceFolderButton.Location = New System.Drawing.Point(11, 66)
         Me.sourceFolderButton.Name = "sourceFolderButton"
         Me.sourceFolderButton.Size = New System.Drawing.Size(278, 23)
@@ -91,7 +90,6 @@ Partial Class Form1
         '
         'destinationFolderButton
         '
-        Me.destinationFolderButton.Enabled = False
         Me.destinationFolderButton.Location = New System.Drawing.Point(11, 141)
         Me.destinationFolderButton.Name = "destinationFolderButton"
         Me.destinationFolderButton.Size = New System.Drawing.Size(278, 23)
@@ -101,7 +99,6 @@ Partial Class Form1
         '
         'fileListButton
         '
-        Me.fileListButton.Enabled = False
         Me.fileListButton.Location = New System.Drawing.Point(11, 226)
         Me.fileListButton.Name = "fileListButton"
         Me.fileListButton.Size = New System.Drawing.Size(278, 23)
@@ -120,7 +117,6 @@ Partial Class Form1
         '
         'settingsButton
         '
-        Me.settingsButton.Enabled = False
         Me.settingsButton.Location = New System.Drawing.Point(12, 12)
         Me.settingsButton.Name = "settingsButton"
         Me.settingsButton.Size = New System.Drawing.Size(279, 35)
@@ -185,11 +181,22 @@ Partial Class Form1
         Me.reducesLogging.Text = "Reduced Logging"
         Me.reducesLogging.UseVisualStyleBackColor = True
         '
+        'onlyCheckForExist
+        '
+        Me.onlyCheckForExist.AutoSize = True
+        Me.onlyCheckForExist.Location = New System.Drawing.Point(11, 293)
+        Me.onlyCheckForExist.Name = "onlyCheckForExist"
+        Me.onlyCheckForExist.Size = New System.Drawing.Size(242, 17)
+        Me.onlyCheckForExist.TabIndex = 17
+        Me.onlyCheckForExist.Text = "Only check if files exist (without copying them)"
+        Me.onlyCheckForExist.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 441)
+        Me.Controls.Add(Me.onlyCheckForExist)
         Me.Controls.Add(Me.reducesLogging)
         Me.Controls.Add(Me.exportErrorLog)
         Me.Controls.Add(Me.chooseFileList)
@@ -229,4 +236,5 @@ Partial Class Form1
     Friend WithEvents chooseFileList As Button
     Friend WithEvents exportErrorLog As Button
     Friend WithEvents reducesLogging As CheckBox
+    Friend WithEvents onlyCheckForExist As CheckBox
 End Class

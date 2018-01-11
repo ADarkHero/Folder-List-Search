@@ -54,7 +54,14 @@ Public Class Form1
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
             Try
-                FileCopy(srcFile, destFile)         ' Copy source to target.
+                If (onlyCheckForExist.Checked) Then
+                    If (Not (System.IO.File.Exists(srcFile))) Then
+                        Throw New System.Exception("File does not exist.")
+                    End If
+                Else
+                    FileCopy(srcFile, destFile)         ' Copy source to target.
+                End If
+
                 If (Not reducesLogging.Checked) Then
                     i += 1
                     f += 1                          ' Count the copied files
