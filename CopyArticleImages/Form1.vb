@@ -55,7 +55,7 @@ Public Class Form1
             destFile = destFolder + a               ' Define target file name.
             Try
                 If (onlyCheckForExist.Checked) Then
-                    If (Not (System.IO.File.Exists(srcFile))) Then
+                    If (Not (System.IO.File.Exists(srcFile))) Then  ' Checks if file exists -> If not: Throw exception
                         Throw New System.Exception("File does not exist.")
                     End If
                 Else
@@ -67,10 +67,14 @@ Public Class Form1
                     f += 1                          ' Count the copied files
                 End If
             Catch ex As Exception
-                If (reducesLogging.Checked) Then
-                    logBox.Text += srcFile + Environment.NewLine
-                Else
-                    logBox.Text += "NOT FOUND - " + srcFile + Environment.NewLine
+                Dim srcWithoutPath As String = Path.GetFileName(srcFile)    ' Get only the file name
+
+                If (Not (srcWithoutPath.Equals(""))) Then   ' Filters empty strings
+                    If (reducesLogging.Checked) Then    ' Reduced logging
+                        logBox.Text += srcWithoutPath + Environment.NewLine
+                    Else
+                        logBox.Text += "NOT FOUND - " + srcWithoutPath + Environment.NewLine
+                    End If
                 End If
 
                 If (Not reducesLogging.Checked) Then
