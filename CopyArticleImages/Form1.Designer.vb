@@ -39,6 +39,7 @@ Partial Class Form1
         Me.exportErrorLog = New System.Windows.Forms.Button()
         Me.reducesLogging = New System.Windows.Forms.CheckBox()
         Me.onlyCheckForExist = New System.Windows.Forms.CheckBox()
+        Me.overwriteExistingFiles = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'logBox
@@ -74,9 +75,9 @@ Partial Class Form1
         '
         'fileList
         '
-        Me.fileList.Location = New System.Drawing.Point(11, 255)
+        Me.fileList.Location = New System.Drawing.Point(12, 255)
         Me.fileList.Name = "fileList"
-        Me.fileList.Size = New System.Drawing.Size(234, 20)
+        Me.fileList.Size = New System.Drawing.Size(233, 20)
         Me.fileList.TabIndex = 4
         '
         'sourceFolderButton
@@ -184,18 +185,29 @@ Partial Class Form1
         'onlyCheckForExist
         '
         Me.onlyCheckForExist.AutoSize = True
-        Me.onlyCheckForExist.Location = New System.Drawing.Point(11, 293)
+        Me.onlyCheckForExist.Location = New System.Drawing.Point(12, 281)
         Me.onlyCheckForExist.Name = "onlyCheckForExist"
         Me.onlyCheckForExist.Size = New System.Drawing.Size(242, 17)
         Me.onlyCheckForExist.TabIndex = 17
         Me.onlyCheckForExist.Text = "Only check if files exist (without copying them)"
         Me.onlyCheckForExist.UseVisualStyleBackColor = True
         '
+        'overwriteExistingFiles
+        '
+        Me.overwriteExistingFiles.AutoSize = True
+        Me.overwriteExistingFiles.Location = New System.Drawing.Point(11, 304)
+        Me.overwriteExistingFiles.Name = "overwriteExistingFiles"
+        Me.overwriteExistingFiles.Size = New System.Drawing.Size(130, 17)
+        Me.overwriteExistingFiles.TabIndex = 18
+        Me.overwriteExistingFiles.Text = "Overwrite existing files"
+        Me.overwriteExistingFiles.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(704, 441)
+        Me.Controls.Add(Me.overwriteExistingFiles)
         Me.Controls.Add(Me.onlyCheckForExist)
         Me.Controls.Add(Me.reducesLogging)
         Me.Controls.Add(Me.exportErrorLog)
@@ -237,4 +249,5 @@ Partial Class Form1
     Friend WithEvents exportErrorLog As Button
     Friend WithEvents reducesLogging As CheckBox
     Friend WithEvents onlyCheckForExist As CheckBox
+    Friend WithEvents overwriteExistingFiles As CheckBox
 End Class

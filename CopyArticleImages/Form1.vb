@@ -54,12 +54,25 @@ Public Class Form1
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
             Try
+                ' Only check if files are existing
                 If (onlyCheckForExist.Checked) Then
                     If (Not (System.IO.File.Exists(srcFile))) Then  ' Checks if file exists -> If not: Throw exception
                         Throw New System.Exception("File does not exist.")
+                    ElseIf (System.IO.File.Exists(destFile) And Not reducesLogging.Checked) Then
+                        logBox.Text += "ALREADY COPIED - " + srcFile + Environment.NewLine
                     End If
+
+                    ' Copy the existing files
                 Else
-                    FileCopy(srcFile, destFile)         ' Copy source to target.
+                    If (overwriteExistingFiles.Checked) Then
+                        FileCopy(srcFile, destFile) ' Copy source to target - Overwrites existing files
+                    Else
+                        If (Not (System.IO.File.Exists(destFile))) Then
+                            FileCopy(srcFile, destFile) ' Copy source to target - Don't overwrite existing files
+                        ElseIf (Not reducesLogging.Checked) Then
+                            logBox.Text += "ALREADY COPIED - " + srcFile + Environment.NewLine
+                        End If
+                    End If
                 End If
 
                 If (Not reducesLogging.Checked) Then
