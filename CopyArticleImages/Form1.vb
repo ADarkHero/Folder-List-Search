@@ -13,6 +13,9 @@ Public Class Form1
         srcFolder = reader.ReadLine
         destFolder = reader.ReadLine
         list = reader.ReadLine
+        reducesLogging.Checked = Convert.ToBoolean(reader.ReadLine)
+        onlyCheckForExist.Checked = Convert.ToBoolean(reader.ReadLine)
+        overwriteExistingFiles.Checked = Convert.ToBoolean(reader.ReadLine)
 
         reader.Close()
 
@@ -36,6 +39,9 @@ Public Class Form1
         file.WriteLine(srcFolder)
         file.WriteLine(destFolder)
         file.WriteLine(list)
+        file.WriteLine(reducesLogging.Checked.ToString)
+        file.WriteLine(onlyCheckForExist.Checked.ToString)
+        file.WriteLine(overwriteExistingFiles.Checked.ToString)
         file.Close()
 
 
@@ -48,7 +54,6 @@ Public Class Form1
         ' Read filenames from txt and copy them from srcFolder to destFolder
         Do
             a = reader.ReadLine
-
 
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
