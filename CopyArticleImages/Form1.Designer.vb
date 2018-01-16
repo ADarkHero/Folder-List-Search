@@ -109,12 +109,14 @@ Partial Class Form1
         '
         'startButton
         '
-        Me.startButton.Location = New System.Drawing.Point(14, 329)
+        Me.startButton.BackColor = System.Drawing.Color.SeaGreen
+        Me.startButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.startButton.Location = New System.Drawing.Point(12, 329)
         Me.startButton.Name = "startButton"
-        Me.startButton.Size = New System.Drawing.Size(275, 100)
+        Me.startButton.Size = New System.Drawing.Size(276, 100)
         Me.startButton.TabIndex = 8
         Me.startButton.Text = "START!"
-        Me.startButton.UseVisualStyleBackColor = True
+        Me.startButton.UseVisualStyleBackColor = False
         '
         'settingsButton
         '
