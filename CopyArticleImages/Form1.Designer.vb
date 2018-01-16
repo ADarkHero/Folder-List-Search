@@ -68,21 +68,21 @@ Partial Class Form1
         '
         'destinationFolder
         '
-        Me.destinationFolder.Location = New System.Drawing.Point(11, 170)
+        Me.destinationFolder.Location = New System.Drawing.Point(12, 159)
         Me.destinationFolder.Name = "destinationFolder"
         Me.destinationFolder.Size = New System.Drawing.Size(234, 20)
         Me.destinationFolder.TabIndex = 3
         '
         'fileList
         '
-        Me.fileList.Location = New System.Drawing.Point(12, 255)
+        Me.fileList.Location = New System.Drawing.Point(12, 225)
         Me.fileList.Name = "fileList"
         Me.fileList.Size = New System.Drawing.Size(233, 20)
         Me.fileList.TabIndex = 4
         '
         'sourceFolderButton
         '
-        Me.sourceFolderButton.Location = New System.Drawing.Point(11, 66)
+        Me.sourceFolderButton.Location = New System.Drawing.Point(12, 66)
         Me.sourceFolderButton.Name = "sourceFolderButton"
         Me.sourceFolderButton.Size = New System.Drawing.Size(278, 23)
         Me.sourceFolderButton.TabIndex = 5
@@ -91,7 +91,7 @@ Partial Class Form1
         '
         'destinationFolderButton
         '
-        Me.destinationFolderButton.Location = New System.Drawing.Point(11, 141)
+        Me.destinationFolderButton.Location = New System.Drawing.Point(12, 130)
         Me.destinationFolderButton.Name = "destinationFolderButton"
         Me.destinationFolderButton.Size = New System.Drawing.Size(278, 23)
         Me.destinationFolderButton.TabIndex = 6
@@ -100,7 +100,7 @@ Partial Class Form1
         '
         'fileListButton
         '
-        Me.fileListButton.Location = New System.Drawing.Point(11, 226)
+        Me.fileListButton.Location = New System.Drawing.Point(12, 196)
         Me.fileListButton.Name = "fileListButton"
         Me.fileListButton.Size = New System.Drawing.Size(278, 23)
         Me.fileListButton.TabIndex = 7
@@ -145,7 +145,7 @@ Partial Class Form1
         '
         'chooseDestinationFolder
         '
-        Me.chooseDestinationFolder.Location = New System.Drawing.Point(251, 170)
+        Me.chooseDestinationFolder.Location = New System.Drawing.Point(251, 159)
         Me.chooseDestinationFolder.Name = "chooseDestinationFolder"
         Me.chooseDestinationFolder.Size = New System.Drawing.Size(37, 20)
         Me.chooseDestinationFolder.TabIndex = 12
@@ -154,7 +154,7 @@ Partial Class Form1
         '
         'chooseFileList
         '
-        Me.chooseFileList.Location = New System.Drawing.Point(251, 255)
+        Me.chooseFileList.Location = New System.Drawing.Point(251, 225)
         Me.chooseFileList.Name = "chooseFileList"
         Me.chooseFileList.Size = New System.Drawing.Size(37, 20)
         Me.chooseFileList.TabIndex = 13
@@ -185,7 +185,7 @@ Partial Class Form1
         'onlyCheckForExist
         '
         Me.onlyCheckForExist.AutoSize = True
-        Me.onlyCheckForExist.Location = New System.Drawing.Point(12, 281)
+        Me.onlyCheckForExist.Location = New System.Drawing.Point(12, 276)
         Me.onlyCheckForExist.Name = "onlyCheckForExist"
         Me.onlyCheckForExist.Size = New System.Drawing.Size(242, 17)
         Me.onlyCheckForExist.TabIndex = 17
@@ -195,7 +195,7 @@ Partial Class Form1
         'overwriteExistingFiles
         '
         Me.overwriteExistingFiles.AutoSize = True
-        Me.overwriteExistingFiles.Location = New System.Drawing.Point(11, 304)
+        Me.overwriteExistingFiles.Location = New System.Drawing.Point(12, 299)
         Me.overwriteExistingFiles.Name = "overwriteExistingFiles"
         Me.overwriteExistingFiles.Size = New System.Drawing.Size(130, 17)
         Me.overwriteExistingFiles.TabIndex = 18

@@ -39,12 +39,11 @@ Public Class Form1
         file.Close()
 
 
-
         Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(list)
         Dim a As String
         Dim i As Integer = 0                    ' Counts copied files
         Dim f As Integer = 0                    ' Counts all files
-        logBox.Text = ""                        ' Clear error log
+
 
         ' Read filenames from txt and copy them from srcFolder to destFolder
         Do
@@ -99,6 +98,7 @@ Public Class Form1
 
         Loop Until a Is Nothing
 
+        logBox.Text = logBox.Text + Environment.NewLine
 
         If (Not reducesLogging.Checked) Then
             logBox.Text = "Files copied: " + f.ToString + " / " + i.ToString + Environment.NewLine + Environment.NewLine + logBox.Text
