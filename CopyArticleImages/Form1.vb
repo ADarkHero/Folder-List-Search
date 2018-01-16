@@ -8,43 +8,20 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Load Settings
-        Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(settings)
-
-        srcFolder = reader.ReadLine
-        destFolder = reader.ReadLine
-        list = reader.ReadLine
-        reducesLogging.Checked = Convert.ToBoolean(reader.ReadLine)
-        onlyCheckForExist.Checked = Convert.ToBoolean(reader.ReadLine)
-        overwriteExistingFiles.Checked = Convert.ToBoolean(reader.ReadLine)
-
-        reader.Close()
-
-
-        fileList.Text = list
-        sourceFolder.Text = srcFolder
-        destinationFolder.Text = destFolder
+        loadSettings()
     End Sub
-
 
     Private Sub startButton_Click(sender As Object, e As EventArgs) Handles startButton.Click
         ' Read Settings from Textboxes
-        list = fileList.Text
-        srcFolder = sourceFolder.Text
-        destFolder = destinationFolder.Text
+        readSettings()
 
         ' Write Settings to file
-        System.IO.File.WriteAllText(settings, "")
-        Dim file As System.IO.StreamWriter
-        file = My.Computer.FileSystem.OpenTextFileWriter(settings, True)
-        file.WriteLine(srcFolder)
-        file.WriteLine(destFolder)
-        file.WriteLine(list)
-        file.WriteLine(reducesLogging.Checked.ToString)
-        file.WriteLine(onlyCheckForExist.Checked.ToString)
-        file.WriteLine(overwriteExistingFiles.Checked.ToString)
-        file.Close()
+        writeSettings()
 
+        main()
+    End Sub
 
+    Private Sub main()
         Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(list)
         Dim a As String
         Dim i As Integer = 0                    ' Counts copied files
@@ -99,8 +76,6 @@ Public Class Form1
                 End If
             End Try
 
-
-
         Loop Until a Is Nothing
 
         logBox.Text = logBox.Text + Environment.NewLine
@@ -110,6 +85,48 @@ Public Class Form1
         End If
 
         reader.Close()
+    End Sub
+
+    Private Sub loadSettings()
+        Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(settings)
+
+        srcFolder = reader.ReadLine
+        destFolder = reader.ReadLine
+        list = reader.ReadLine
+        reducesLogging.Checked = Convert.ToBoolean(reader.ReadLine)
+        onlyCheckForExist.Checked = Convert.ToBoolean(reader.ReadLine)
+        overwriteExistingFiles.Checked = Convert.ToBoolean(reader.ReadLine)
+
+        reader.Close()
+
+
+        fileList.Text = list
+        sourceFolder.Text = srcFolder
+        destinationFolder.Text = destFolder
+    End Sub
+
+    Private Sub readSettings()
+        list = fileList.Text
+        srcFolder = sourceFolder.Text
+        destFolder = destinationFolder.Text
+    End Sub
+
+    Private Sub writeSettings()
+        IO.File.WriteAllText(settings, "")
+
+        Dim file As System.IO.StreamWriter
+
+
+        file = My.Computer.FileSystem.OpenTextFileWriter(settings, True)
+
+        file.WriteLine(srcFolder)
+        file.WriteLine(destFolder)
+        file.WriteLine(list)
+        file.WriteLine(reducesLogging.Checked.ToString)
+        file.WriteLine(onlyCheckForExist.Checked.ToString)
+        file.WriteLine(overwriteExistingFiles.Checked.ToString)
+
+        file.Close()
     End Sub
 
     Private Sub clearErrorLog_Click(sender As Object, e As EventArgs) Handles clearErrorLog.Click
@@ -124,10 +141,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub configErrorLog_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
     Private Sub exportErrorLog_Click(sender As Object, e As EventArgs) Handles exportErrorLog.Click
         Dim saveFileDialog1 As New SaveFileDialog()
         saveFileDialog1.Filter = "Error log|*.txt"
@@ -137,10 +150,6 @@ Public Class Form1
         If saveFileDialog1.FileName <> "" Then
             My.Computer.FileSystem.WriteAllText(saveFileDialog1.FileName, logBox.Text, False)
         End If
-    End Sub
-
-    Private Sub reducedLogging(sender As Object, e As EventArgs) Handles reducesLogging.CheckedChanged
-
     End Sub
 
     Private Sub chooseDestinationFolder_Click(sender As Object, e As EventArgs) Handles chooseDestinationFolder.Click
