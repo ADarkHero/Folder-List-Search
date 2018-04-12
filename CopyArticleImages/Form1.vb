@@ -61,15 +61,24 @@ Public Class Form1
                     f += 1                          ' Count the copied files
                 End If
             Catch ex As Exception
-                Dim srcWithoutPath As String = Path.GetFileName(srcFile)    ' Get only the file name
+                Try
+                    Dim srcWithoutPath As String = Path.GetFileName(srcFile)    ' Get only the file 
 
-                If (Not (srcWithoutPath.Equals(""))) Then   ' Filters empty strings
-                    If (reducesLogging.Checked) Then    ' Reduced logging
-                        logBox.Text += srcWithoutPath + Environment.NewLine
-                    Else
-                        logBox.Text += "NOT FOUND - " + srcWithoutPath + Environment.NewLine
+                    If (Not (srcWithoutPath.Equals(""))) Then   ' Filters empty strings
+                        If (reducesLogging.Checked) Then    ' Reduced logging
+                            logBox.Text += srcWithoutPath + Environment.NewLine
+                        Else
+                            logBox.Text += "NOT FOUND - " + srcWithoutPath + Environment.NewLine
+                        End If
                     End If
-                End If
+                Catch ex1 As Exception
+                    If (Not reducesLogging.Checked) Then
+                        logBox.Text += ex1.ToString + Environment.NewLine
+                    End If
+                End Try
+
+
+
 
                 If (Not reducesLogging.Checked) Then
                     i += 1
