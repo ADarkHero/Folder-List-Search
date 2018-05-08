@@ -45,6 +45,15 @@ Public Class Form1
                 a = delteteQuotesFromFilenames(a)
             End If
 
+            Try
+                a = a.Split(txtDelimiter)(Convert.ToInt16(clmNumber) - 1) ' Splits filename after xth delimiter
+            Catch ex As Exception
+
+            End Try
+
+
+            Console.WriteLine(a)
+
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
 
