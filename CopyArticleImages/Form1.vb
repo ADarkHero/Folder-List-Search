@@ -22,6 +22,8 @@ Public Class Form1
     End Sub
 
     Private Sub main()
+        checkFolderBackslash()                   ' Checks, if src and dest folder end with a \ -> if not, add one
+
         Dim reader As StreamReader = My.Computer.FileSystem.OpenTextFileReader(list)
         Dim a As String
         Dim i As Integer = 0                    ' Counts copied files
@@ -34,6 +36,7 @@ Public Class Form1
 
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
+
             Try
                 ' Only check if files are existing
                 If (onlyCheckForExist.Checked) Then
@@ -94,6 +97,15 @@ Public Class Form1
         End If
 
         reader.Close()
+    End Sub
+
+    Private Sub checkFolderBackslash()
+        If (Not (srcFolder.Substring(srcFolder.Length - 1).Equals("\"))) Then
+            srcFolder = srcFolder + "\"
+        End If
+        If (Not (destFolder.Substring(srcFolder.Length - 1).Equals("\"))) Then
+            destFolder = destFolder + "\"
+        End If
     End Sub
 
     Private Sub loadSettings()
