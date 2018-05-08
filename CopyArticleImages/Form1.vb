@@ -4,6 +4,7 @@ Public Class Form1
     Dim list As String
     Dim srcFolder, destFolder As String
     Dim srcFile, destFile As String
+    Dim txtDelimiter, clmNumber As String
     Dim settings As String = "settings.txt"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -28,14 +29,26 @@ Public Class Form1
         Dim a As String
         Dim i As Integer = 0                    ' Counts copied files
         Dim f As Integer = 0                    ' Counts all files
+        Dim firstlinechecked As Boolean = False
 
 
         ' Read filenames from txt and copy them from srcFolder to destFolder
         Do
+            If (skipFirstLine.Checked And Not (firstlinechecked)) Then
+                a = reader.ReadLine
+                firstlinechecked = True
+            End If
+
             a = reader.ReadLine
+
+            If (deleteQuotes.Checked) Then
+                a = delteteQuotesFromFilenames(a)
+            End If
 
             srcFile = srcFolder + a                 ' Define source file name.
             destFile = destFolder + a               ' Define target file name.
+
+
 
             Try
                 ' Only check if files are existing
@@ -99,6 +112,21 @@ Public Class Form1
         reader.Close()
     End Sub
 
+    Private Function delteteQuotesFromFilenames(filename As String) As String
+        Try
+            If (filename.Contains("""")) Then
+                filename = filename.Replace("""", "")
+            End If
+            If (filename.Contains("'")) Then
+                filename = filename.Replace("'", "")
+            End If
+        Catch ex As Exception
+
+        End Try
+
+        Return filename
+    End Function
+
     Private Sub checkFolderBackslash()
         If (Not (srcFolder.Substring(srcFolder.Length - 1).Equals("\"))) Then
             srcFolder = srcFolder + "\"
@@ -117,6 +145,11 @@ Public Class Form1
         reducesLogging.Checked = Convert.ToBoolean(reader.ReadLine)
         onlyCheckForExist.Checked = Convert.ToBoolean(reader.ReadLine)
         overwriteExistingFiles.Checked = Convert.ToBoolean(reader.ReadLine)
+        deleteQuotes.Checked = Convert.ToBoolean(reader.ReadLine)
+        skipFirstLine.Checked = Convert.ToBoolean(reader.ReadLine)
+        clmNumber = reader.ReadLine
+        txtDelimiter = reader.ReadLine
+
 
         reader.Close()
 
@@ -124,12 +157,16 @@ Public Class Form1
         fileList.Text = list
         sourceFolder.Text = srcFolder
         destinationFolder.Text = destFolder
+        columnNumber.Text = clmNumber
+        textDelimiter.Text = txtDelimiter
     End Sub
 
     Private Sub readSettings()
         list = fileList.Text
         srcFolder = sourceFolder.Text
         destFolder = destinationFolder.Text
+        clmNumber = columnNumber.Text
+        txtDelimiter = textDelimiter.Text
     End Sub
 
     Private Sub writeSettings()
@@ -146,6 +183,11 @@ Public Class Form1
         file.WriteLine(reducesLogging.Checked.ToString)
         file.WriteLine(onlyCheckForExist.Checked.ToString)
         file.WriteLine(overwriteExistingFiles.Checked.ToString)
+        file.WriteLine(deleteQuotes.Checked.ToString)
+        file.WriteLine(skipFirstLine.Checked.ToString)
+        file.WriteLine(clmNumber)
+        file.WriteLine(txtDelimiter)
+
 
         file.Close()
     End Sub
